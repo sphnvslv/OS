@@ -20,7 +20,7 @@ int main() {
     file.write((char*)&test_emp, sizeof(employee));
     file.close();
 
-    cout << "PASS: File created successfully" << endl;
+    cout << "PASS: File created" << endl;
 
     ifstream read_file(filename, ios::binary);
     if (!read_file) {
@@ -43,5 +43,6 @@ int main() {
     remove(filename.c_str());
     cout << "=== Creator tests completed ===" << endl << endl;
 
+    system("pause");
     return 0;
 }

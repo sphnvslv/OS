@@ -43,7 +43,7 @@ int main() {
     input_file.close();
     report_file.close();
 
-    cout << "PASS: Report generated successfully" << endl;
+    cout << "PASS: Report generated" << endl;
 
     ifstream check_report(report_filename);
     if (check_report) {
@@ -58,5 +58,7 @@ int main() {
     remove(report_filename.c_str());
 
     cout << "=== Reporter tests completed ===" << endl << endl;
+
+    system("pause");
     return 0;
 }

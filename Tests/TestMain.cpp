@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    cout << "=== Testing Main (Process Creation) ===" << endl;
+    cout << "=== Testing Main ===" << endl;
 
     STARTUPINFOA si = { 0 };
     PROCESS_INFORMATION pi = { 0 };
@@ -25,14 +25,14 @@ int main() {
     );
 
     if (result) {
-        cout << "PASS: Process created successfully" << endl;
+        cout << "PASS: Process created" << endl;
 
         Sleep(1000);
         TerminateProcess(pi.hProcess, 0);
         CloseHandle(pi.hProcess);
         CloseHandle(pi.hThread);
 
-        cout << "PASS: Process terminated correctly" << endl;
+        cout << "PASS: Process terminated" << endl;
     }
     else {
         cout << "FAIL: Cannot create process" << endl;
@@ -40,5 +40,7 @@ int main() {
     }
 
     cout << "=== Main tests completed ===" << endl << endl;
+
+    system("pause");
     return 0;
 }
