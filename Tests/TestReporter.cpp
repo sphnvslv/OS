@@ -8,7 +8,6 @@ using namespace std;
 int main() {
     cout << "=== Testing Reporter ===" << endl;
 
-    // Создаем тестовый бинарный файл
     string bin_filename = "test_reporter.bin";
     ofstream bin_file(bin_filename, ios::binary);
 
