@@ -8,10 +8,8 @@ using namespace std;
 int main() {
     cout << "=== Testing Creator ===" << endl;
 
-    // Тест 1: Создание файла
     string filename = "test_creator.bin";
 
-    // Имитируем работу Creator
     ofstream file(filename, ios::binary);
     if (!file) {
         cout << "FAIL: Cannot create file " << filename << endl;
@@ -24,7 +22,6 @@ int main() {
 
     cout << "PASS: File created successfully" << endl;
 
-    // Тест 2: Чтение файла
     ifstream read_file(filename, ios::binary);
     if (!read_file) {
         cout << "FAIL: Cannot read created file" << endl;
@@ -43,7 +40,6 @@ int main() {
 
     read_file.close();
 
-    // Убираем за собой
     remove(filename.c_str());
     cout << "=== Creator tests completed ===" << endl << endl;
 

@@ -18,7 +18,6 @@ int main() {
     bin_file.write((char*)&emp2, sizeof(employee));
     bin_file.close();
 
-    // Имитируем работу Reporter
     string report_filename = "test_report.txt";
     ofstream report_file(report_filename);
 
@@ -27,7 +26,6 @@ int main() {
         return 1;
     }
 
-    // Генерируем отчет
     report_file << "Report for file: " << bin_filename << endl;
     report_file << "------------------------------------------" << endl;
     report_file << "ID\tName\t\tHours\tSalary" << endl;
@@ -48,7 +46,6 @@ int main() {
 
     cout << "PASS: Report generated successfully" << endl;
 
-    // Простая проверка что файл существует
     ifstream check_report(report_filename);
     if (check_report) {
         cout << "PASS: Report file created and contains data" << endl;
@@ -58,7 +55,6 @@ int main() {
         cout << "FAIL: Report file was not created" << endl;
     }
 
-    // Убираем за собой
     remove(bin_filename.c_str());
     remove(report_filename.c_str());
 
