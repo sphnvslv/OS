@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
         cout << endl;
 
         file.write((char*)&emp, sizeof(employee));
-       
+
     }
 
     file.close();

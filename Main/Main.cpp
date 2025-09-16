@@ -2,18 +2,9 @@
 #include <windows.h>
 #include <fstream>
 #include <string>
-#include "employee.h"
+#include "../core/employee.h"
 
 using namespace std;
-
-wstring stringToWString(const string& str) {
-    int size = MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, nullptr, 0);
-    wchar_t* buffer = new wchar_t[size];
-    MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, buffer, size);
-    wstring result(buffer);
-    delete[] buffer;
-    return result;
-}
 
 void printBinInfo(const string& filename) {
     ifstream file(filename, ios::binary);
@@ -59,18 +50,17 @@ int main() {
     cout << "Enter number of employees: ";
     cin >> recordCount;
 
-    string command = "Creator.exe " + binaryFileName + " " + to_string(recordCount);
+    string command = "Creator\\\\Debug\\\\Creator.exe " + binaryFileName + " " + to_string(recordCount);
 
-    STARTUPINFO si;
+    STARTUPINFOA si;
     PROCESS_INFORMATION pi;
     ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
 
-    wstring wideCommand = stringToWString(command);
-    wchar_t* commandLine = _wcsdup(wideCommand.c_str());
+    char* commandLine = _strdup(command.c_str());
 
-    if (!CreateProcess(NULL, commandLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+    if (!CreateProcessA(NULL, commandLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
         cerr << "Error starting Creator" << endl;
         free(commandLine);
         return 1;
@@ -91,10 +81,9 @@ int main() {
 
     command = "Reporter.exe " + binaryFileName + " " + reportFileName + " " + to_string(hourlyRate);
 
-    wideCommand = stringToWString(command);
-    commandLine = _wcsdup(wideCommand.c_str());
+    commandLine = _strdup(command.c_str());
 
-    if (!CreateProcess(NULL, commandLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+    if (!CreateProcessA(NULL, commandLine, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
         cerr << "Error starting Reporter" << endl;
         free(commandLine);
         return 1;
