@@ -1,0 +1,24 @@
+﻿# Visual Studio
+.vs/
+*.vcxproj
+*.filters
+*.user
+*.sln
+*.suo
+*.pdb
+*.ilk
+*.idb
+*.obj
+*.log
+*.tlog
+ipch/
+x64/
+Debug/
+Release/
+build/
+
+# CMake
+out/
+
+# Executables
+exe/
