@@ -54,7 +54,7 @@ DWORD WINAPI average(LPVOID lpParam) {
     double sum = 0;
     for (int i = 0; i < size; i++) {
         sum += arr[i];
-        Sleep(12); 
+        Sleep(12);
     }
 
     double avg = sum / size;
@@ -69,23 +69,23 @@ int main() {
 
     int size;
 
-    cout << "Enter arrays' size: ";
+    cout << "\nEnter arrays' size: ";
     cin >> size;
 
     if (size <= 0) {
-        cout << "Arrays' size must be a positiv number" << std::endl;
+        cout << "Arrays' size must be a positiv number" << endl;
         return 1;
     }
 
     int* array = new int[size];
 
-    cout << "Enter " << size << " arrays' elements:" << endl;
+    cout << "Enter " << size << " arrays' elements:\n" << endl;
     for (int i = 0; i < size; i++) {
         cout << "Element " << i + 1 << ": ";
         cin >> array[i];
     }
 
-    cout << "Original array: ";
+    cout << "\nOriginal array: ";
     for (int i = 0; i < size; i++) {
         cout << array[i] << " ";
     }
@@ -116,10 +116,10 @@ int main() {
     CloseHandle(hMinMax);
     CloseHandle(hAverage);
 
-    
+
     for (int i = 0; i < size; i++) {
         if (array[i] == min || array[i] == max) {
-            array[i] = (int)avg; 
+            array[i] = (int)avg;
         }
     }
 
