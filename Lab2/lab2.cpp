@@ -69,7 +69,7 @@ int main() {
 
     int size;
 
-    cout << "\nEnter arrays' size: ";
+    cout << "Enter arrays' size: ";
     cin >> size;
 
     if (size <= 0) {
