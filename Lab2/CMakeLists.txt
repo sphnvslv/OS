@@ -7,9 +7,21 @@ if(WIN32)
     set(THREADS_LIBS kernel32 user32 gdi32 winspool shell32 ole32 oleaut32 uuid comdlg32 advapi32)
 endif()
 
-add_executable(Lab2 lab2.cpp)
+add_executable(Lab2 
+    lab2.cpp
+    core/array.cpp
+    threads/thread.cpp
+)
 
 if(WIN32)
     target_link_libraries(Lab2 ${THREADS_LIBS})
 endif()
 
+add_executable(Lab2_Tests 
+    tests/test_lab2.cpp 
+    core/array.cpp
+)
+
+if(WIN32)
+    target_link_libraries(Lab2_Tests ${THREADS_LIBS})
+endif()
