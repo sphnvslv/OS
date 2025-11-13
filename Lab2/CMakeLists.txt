@@ -11,7 +11,7 @@ add_executable(Lab2
     lab2.cpp
     core/array.cpp
     threads/thread.cpp
-)
+ "tests/test_lab2.cpp")
 
 if(WIN32)
     target_link_libraries(Lab2 ${THREADS_LIBS})
@@ -20,7 +20,7 @@ endif()
 add_executable(Lab2_Tests 
     tests/test_lab2.cpp 
     core/array.cpp
-)
+ "tests/test_lab2.cpp")
 
 if(WIN32)
     target_link_libraries(Lab2_Tests ${THREADS_LIBS})
