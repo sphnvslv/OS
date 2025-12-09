@@ -38,7 +38,6 @@ void Receiver::startSenders() {
 
     cout << "All senders started. Waiting for ready signals..." << endl;
 
-    // ∆дем готовности всех сендеров
     for (int i = 0; i < senderCount; i++) {
         this_thread::sleep_for(chrono::seconds(1));
         cout << "Sender " << (i + 1) << " ready" << endl;
@@ -78,7 +77,6 @@ void Receiver::readMessage() {
     if (file->isEmpty()) {
         cout << "Buffer is empty. Waiting for messages..." << endl;
 
-        // ∆дем по€влени€ сообщений
         while (file->isEmpty()) {
             this_thread::sleep_for(chrono::milliseconds(500));
         }

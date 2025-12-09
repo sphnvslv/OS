@@ -14,7 +14,6 @@ void Sender::run() {
     cout << "Sender " << id << " started" << endl;
     cout << "Using file: " << filename << endl;
 
-    // Сигнал готовности
     this_thread::sleep_for(chrono::seconds(1));
     cout << "Sender " << id << " ready" << endl;
 
